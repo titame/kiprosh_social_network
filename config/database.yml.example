@@ -1,0 +1,27 @@
+database: &DATABASE
+  adapter: postgresql
+
+development:
+  <<: *DATABASE
+  database: kiprosh_social_network_dev
+  username: postgres
+  password: password@1234
+  host: localhost
+
+test:
+  <<: *DATABASE
+  database: kiprosh_social_network_test
+  username: postgres
+  password: password@1234
+  host: localhost
+
+qa_acceptance:
+  <<: *DATABASE
+
+staging:
+  <<: *DATABASE
+
+# DATABASE_URL is added automatically
+# and merged with these properties on heroku
+production:
+  <<: *DATABASE
