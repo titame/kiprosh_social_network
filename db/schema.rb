@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170304114421) do
+ActiveRecord::Schema.define(version: 20170304163547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,10 +107,10 @@ ActiveRecord::Schema.define(version: 20170304114421) do
 
   create_table "user_invitations", force: :cascade do |t|
     t.integer  "event_id"
-    t.boolean  "accepted"
+    t.boolean  "accepted",   default: false
     t.integer  "person_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.index ["event_id"], name: "index_user_invitations_on_event_id", using: :btree
   end
 
