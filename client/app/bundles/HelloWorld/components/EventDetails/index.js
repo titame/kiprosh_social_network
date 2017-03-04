@@ -2,9 +2,12 @@ import React, {  Component } from 'react';
 
 import HeroContainer from './HeroContainer';
 import Gallery from './Gallery';
+import PicturesWall from './PicturesWall';
 
 
 import './EventsDetail.css';
+import './PicturesWall.css';
+import './antd.min.css';
 
 
 class EventDetails extends Component {
@@ -29,7 +32,7 @@ class EventDetails extends Component {
        <Gallery
           images={this.state.images}
         />
-     }}/>
+       <PicturesWall/>
      </section>
    )
  }

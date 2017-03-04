@@ -15,6 +15,8 @@ gem 'rails', '~> 5.0.2'
 
 gem 'core_box', git: 'https://github.com/rohanpujaris/core_box', branch: 'stable'
 
+gem 'cloudinary'
+
 # database
 gem 'pg'
 
@@ -31,7 +33,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-gem 'haml-rails' 
+gem 'haml-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: tempcloud
+  api_key: '211517776123126'
+  api_secret: fctVgWLQ2l974cUK--_u0mzhw4Q
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: tempcloud
+  api_key: '211517776123126'
+  api_secret: fctVgWLQ2l974cUK--_u0mzhw4Q
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: tempcloud
+  api_key: '211517776123126'
+  api_secret: fctVgWLQ2l974cUK--_u0mzhw4Q
+  enhance_image_tag: true
+  static_image_support: false

@@ -1,5 +1,5 @@
 module Api
-  module v1
+  module V1
     class EventsController < ApplicationController
       def index
         head :ok

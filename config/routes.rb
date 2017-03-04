@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: "json" }  do
     namespace :v1 do
       get "events", to: "events#index"
-      
+      post "photos/upload", to: "photos#upload"
     end
   end
 end
