@@ -12,4 +12,6 @@
  *
  *= require_self
  *= require bootstrap/css/bootstrap.min.css
+ *= require timeline.css
+ *= require main.css
  */

@@ -16,4 +16,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap/js/bootstrap.min.js
-
+//= require plugins/hammer.min.js
+//= require plugins/jquery.hammer.js
+//= require timeline.js
