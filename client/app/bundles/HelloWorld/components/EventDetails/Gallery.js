@@ -7,7 +7,7 @@ class Gallery extends Component {
         super();
 
         this.state = {
-            lightboxIsOpen: true,
+            lightboxIsOpen: false,
             currentImage: 0,
         };
 
@@ -81,6 +81,7 @@ class Gallery extends Component {
                 {this.props.heading && <h2>{this.props.heading}</h2>}
                 {this.props.subheading && <p>{this.props.subheading}</p>}
                 {this.renderGallery()}
+                <div onClick={(evt) => this.openLightbox(0, evt)}>Show Gallery</div>
                 <Lightbox
                     currentImage={this.state.currentImage}
                     images={this.props.images}
