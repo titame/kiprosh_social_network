@@ -15,9 +15,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require main
-//= require moment
-//= require timeline
 //= require bootstrap/js/bootstrap.min.js
 
-APP_URL = "http://localhost:3000"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170304233349) do
+ActiveRecord::Schema.define(version: 20170304234515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20170304233349) do
     t.integer  "event_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "creator_id"
     t.index ["event_id"], name: "index_albums_on_event_id", using: :btree
   end
 
@@ -80,11 +81,15 @@ ActiveRecord::Schema.define(version: 20170304233349) do
 
   create_table "events", force: :cascade do |t|
     t.string   "name"
-    t.datetime "start_date"
-    t.datetime "end_date"
     t.integer  "event_type_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.text     "description"
+    t.text     "background_image_url"
+    t.string   "venue"
+    t.integer  "start_time"
+    t.integer  "end_time"
+    t.integer  "creator_id"
     t.index ["event_type_id"], name: "index_events_on_event_type_id", using: :btree
   end
 
@@ -94,6 +99,7 @@ ActiveRecord::Schema.define(version: 20170304233349) do
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.text     "image_url"
     t.string   "filename"
     t.string   "url"
     t.index ["album_id"], name: "index_photos_on_album_id", using: :btree
@@ -104,6 +110,7 @@ ActiveRecord::Schema.define(version: 20170304233349) do
     t.text     "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "creator_id"
     t.index ["event_id"], name: "index_posts_on_event_id", using: :btree
   end
 
