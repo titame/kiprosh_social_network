@@ -2,17 +2,35 @@
   margin-left: 25%;
 }
 
-.ReactModal__Content .clearfix {
-  margin-left: 12%;
+/*.ReactModal__Content .clearfix {*/
+  /*margin-left: 12%;*/
+/*}*/
+
+.react_modalBtn_container {
+  width: 55%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.ReactModal__Content .form-title {
-  font-size: 25px;
-  margin-left: 20%;
-  font-weight: 500;
-  margin-bottom: 15px;
-  margin-top: 10px;
+.react_modalBtn_container div {
+  float: left;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 4.3rem;
+  font-family: 'Montserrat', sans-serif;
+  margin: 1rem 2.3rem;
+  outline: none;
+  text-align: center;
+  cursor: pointer;
 }
+
+.react_modalBtn_container .nonalbum__btn {
+  border: 2px solid #e6e6e6;
+  color: #a4a1a1;
+  /*width: 40%;*/
+  background: #e4e1e1;
+}
+
 .form_buttons {
   margin-left: 12%;
   margin-top: 10px;

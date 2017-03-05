@@ -15,7 +15,6 @@ class RenderGrid extends Component {
        }}>
          <button className="album__btn">View More Photos</button>
        </section>
-
       </section>
     )
   }

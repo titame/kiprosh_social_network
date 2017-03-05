@@ -7,6 +7,7 @@ import Gallery from './Gallery';
 import AlbumForm from './AlbumForm';
 
 import PicturesWall from './PicturesWall';
+import PostForm from './PostForm'
 import Tweet from './Tweet'
 import './EventsDetail.css';
 
@@ -99,27 +100,35 @@ class EventDetails extends Component {
            posts:[]
        },
      images:[{ src:'http://lorempixel.com/400/400/sports/1'} ,{ src:'http://lorempixel.com/400/400/sports/2'},{ src:'http://lorempixel.com/400/400/sports/3'},{ src:'http://lorempixel.com/400/400/sports/1'} ],
-     isModalOpen:false
+     isModalOpen:false,
+     createPostOrAlbum:'album'
    };
    this.closeModal = this.closeModal.bind(this);
+   this.updateCreatePostOrAlbum = this.updateCreatePostOrAlbum.bind(this);
  }
 
  componentDidMount(){
    $.ajax({
     url:'http://d509904c.ngrok.io/api/v1/events/769?token=de7374db290424cff6d7be44447eaabf',
     success:(data) => {
-        this.setState({
-            events:data
-        })
+      this.setState({
+        events:data
+      })
     },
     error:() => {
-
+     console.log("Error in Getting Event Details")
     }
    })
  }
  closeModal(){
    this.setState({
      isModalOpen:false
+   })
+ }
+
+ updateCreatePostOrAlbum(createPostOrAlbum){
+   this.setState({
+      createPostOrAlbum
    })
  }
 
@@ -132,7 +141,8 @@ class EventDetails extends Component {
   const {
     images,
     isModalOpen,
-    events
+    events,
+    createPostOrAlbum
   } = this.state;
    return (
      <section>
@@ -186,7 +196,18 @@ class EventDetails extends Component {
           style={customStyle}
           contentLabel="Modal"
         >
-        <AlbumForm closeForm={this.closeModal}/>
+
+         <div className="react_modalBtn_container clearfix">
+             <div className={createPostOrAlbum === 'post' ? "nonalbum__btn form-title" : 'album__btn'}  onClick={() => {
+                 this.updateCreatePostOrAlbum('album')
+             }}> Create your album </div>
+             <div className={createPostOrAlbum === 'album' ? "nonalbum__btn form-description" : 'album__btn'} onClick={() => {
+                 this.updateCreatePostOrAlbum('post')
+             }}> Create your Post </div>
+         </div>
+
+        <AlbumForm createPostOrAlbum={createPostOrAlbum} closeForm={this.closeModal} />
+        <PostForm createPostOrAlbum={createPostOrAlbum} closeForm={this.closeModal} />
        </Modal>
      </section>
    )

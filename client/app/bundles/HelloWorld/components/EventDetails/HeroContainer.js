@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 class HeroContainer extends React.Component {
  render() {
   const { backgroundImage, events } = this.props;

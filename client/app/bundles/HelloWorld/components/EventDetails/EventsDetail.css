@@ -55,7 +55,7 @@
 }
 
 .album__thumbnail {
- font-family: 'Montserrat', sans-serif;
+ font-family: 'Montserrat', sanrs-serif;
 }
 
 
@@ -150,8 +150,8 @@
 }
 
 .ReactModal__Content .ant-upload.ant-upload-select-picture-card {
-    width: 75px;
-    height: 62px;
+  width: 62px;
+  height: 44px;
 }
 
 .ReactModal__Content .ant-upload-select-picture-card {
@@ -159,12 +159,26 @@
 }
 
 .ReactModal__Content .ant-upload.ant-upload-select-picture-card>.ant-upload {
-    padding:11px 0;
+    padding:3px 0;
 }
 
 .ReactModal__Content .ant-upload-select-picture-card i {
-    font-size: 13px;
+    font-size: 11px;
 }
+
+.ReactModal__Content .ant-upload-select-picture-card .ant-upload-text {
+  margin-top: 0;
+}
+
+.ReactModal__Content .btn__wrapper {
+    text-align: center;
+}
+
+.ReactModal__Content .btn__wrapper button {
+  margin-left: 2.3rem;
+  display: inline-block;
+}
+
 
 /*font-family: 'Montserrat', sans-serif;
 font-family: 'Droid Serif', serif;*/
