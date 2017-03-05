@@ -14,3 +14,8 @@
  *= require bootstrap/css/bootstrap.min.css
  *= require timeline
  */
+
+.loginscreen .form-group-lg .form-control {
+  width: 40%;
+  margin-top: 10px;
+}

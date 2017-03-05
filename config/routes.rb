@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root "pages#home"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
+  get "login", to: "application#login"
+  get "signup", to: "application#signup"
   get "events", to: "events#index"
   get 'api/v1/login', to: 'application#login'
   namespace :api, defaults: { format: "json" }  do
