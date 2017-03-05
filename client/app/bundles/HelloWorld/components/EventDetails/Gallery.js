@@ -2,6 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { css, StyleSheet } from 'aphrodite/no-important';
 import Lightbox from 'react-images';
 
+import RenderGrid from './RenderGrid'
+
 class Gallery extends Component {
     constructor () {
         super();
@@ -81,7 +83,11 @@ class Gallery extends Component {
                 {this.props.heading && <h2>{this.props.heading}</h2>}
                 {this.props.subheading && <p>{this.props.subheading}</p>}
                 {this.renderGallery()}
-                <div onClick={(evt) => this.openLightbox(0, evt)}>Show Gallery</div>
+                <div style={{
+                    display:'inline-block'
+                }} onClick={(evt) => this.openLightbox(0, evt)} >
+                   <RenderGrid images={this.props.images.slice(0,3)} />
+                </div>
                 <Lightbox
                     currentImage={this.state.currentImage}
                     images={this.props.images}

@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rohanpujaris/core_box
-  revision: 6096145ee456706be3d2161fbf4437e0333c9df9
+  revision: 346f73fa7c171c77fe03448a17daa8c75faffe5f
   branch: stable
   specs:
     core_box (0.1.3)
@@ -68,6 +68,8 @@ GEM
     concurrent-ruby (1.0.5)
     connection_pool (2.2.1)
     debug_inspector (0.0.2)
+    domain_name (0.5.20170223)
+      unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.18)
@@ -86,6 +88,8 @@ GEM
       haml (~> 4.0)
       nokogiri (>= 1.6.0)
       ruby_parser (~> 3.5)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
     i18n (0.8.1)
     jbuilder (2.6.3)
       activesupport (>= 3.0.0, < 5.2)
@@ -104,14 +108,13 @@ GEM
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
     method_source (0.8.2)
-    mime-types (3.1)
-      mime-types-data (~> 3.2015)
-    mime-types-data (3.2016.0521)
+    mime-types (2.99.3)
     mini_portile2 (2.1.0)
     mini_racer (0.1.8)
       libv8 (~> 5.3)
     minitest (5.10.1)
     multi_json (1.12.1)
+    netrc (0.11.0)
     nio4r (2.0.0)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
@@ -155,8 +158,10 @@ GEM
       execjs (~> 2.5)
       rails (>= 3.2)
       rainbow (~> 2.1)
-    rest-client (1.6.7)
-      mime-types (>= 1.16)
+    rest-client (1.8.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
     ruby_parser (3.8.4)
       sexp_processor (~> 4.1)
     sass (3.4.23)
@@ -189,6 +194,9 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.1.3)
       execjs (>= 0.3.0, < 3)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.2)
     web-console (3.4.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -224,7 +232,7 @@ DEPENDENCIES
   web-console (>= 3.3.0)
 
 RUBY VERSION
-   ruby 2.3.1p112
+   ruby 2.3.3p222
 
 BUNDLED WITH
-   1.14.6
+   1.13.7

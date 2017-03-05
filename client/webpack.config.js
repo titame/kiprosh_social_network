@@ -50,6 +50,10 @@ const config = {
         test: /\.css$/,
         loaders: ['style','css'],
         exclude: /node_modules/
+      },
+      {
+        test: /\.less$/,
+        loaders: ['less-loader']
       }
     ],
   },
