@@ -86,7 +86,7 @@ class Gallery extends Component {
                 <div style={{
                     display:'inline-block'
                 }} onClick={(evt) => this.openLightbox(0, evt)} >
-                   <RenderGrid images={this.props.images.slice()} />
+                   <RenderGrid images={this.props.images.slice(0,3)} />
                 </div>
                 <Lightbox
                     currentImage={this.state.currentImage}
