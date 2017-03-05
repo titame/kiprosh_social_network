@@ -133,6 +133,39 @@
   margin-left:6.8rem;
 }
 
+.hide {
+    display: none;
+}
+
+.ReactModal__Content .ant-col-8.ant-form-item-control-wrapper {
+    width: 52%;
+}
+.ReactModal__Content .ant-col-4 {
+    width: 29.666667%;
+}
+
+.ReactModal__Content .form_buttons {
+    text-align: center;
+    margin-left: 0;
+}
+
+.ReactModal__Content .ant-upload.ant-upload-select-picture-card {
+    width: 75px;
+    height: 62px;
+}
+
+.ReactModal__Content .ant-upload-select-picture-card {
+    font-size: 15px;
+}
+
+.ReactModal__Content .ant-upload.ant-upload-select-picture-card>.ant-upload {
+    padding:11px 0;
+}
+
+.ReactModal__Content .ant-upload-select-picture-card i {
+    font-size: 13px;
+}
+
 /*font-family: 'Montserrat', sans-serif;
 font-family: 'Droid Serif', serif;*/
 

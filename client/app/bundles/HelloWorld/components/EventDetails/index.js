@@ -106,7 +106,7 @@ class EventDetails extends Component {
 
  componentDidMount(){
    $.ajax({
-    url:'http://1ff69929.ngrok.io/api/v1/events/769?token=de7374db290424cff6d7be44447eaabf',
+    url:'http://d509904c.ngrok.io/api/v1/events/769?token=de7374db290424cff6d7be44447eaabf',
     success:(data) => {
         this.setState({
             events:data

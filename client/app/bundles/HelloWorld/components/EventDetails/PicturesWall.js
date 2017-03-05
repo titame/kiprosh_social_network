@@ -2,28 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { Upload, Icon, Modal } from 'antd';
 
 class PicturesWall extends React.Component {
-  state = {
-    previewVisible: false,
-    previewImage: '',
-    fileList: [],
-  };
-
-  handleCancel = () => this.setState({ previewVisible: false })
-
-  handlePreview = (file) => {
-    this.setState({
-      previewImage: file.url || file.thumbUrl,
-      previewVisible: true,
-    });
-  }
-
-  handleChange = ({ fileList }) => {
-    console.log(this.state.fileList)
-    this.setState({ fileList })
-  }
-
   render() {
-    const { previewVisible, previewImage, fileList } = this.state;
+    const { previewVisible, previewImage, fileList, handlePreview, handleChange, handleCancel } = this.props;
     const uploadButton = (
       <div>
         <Icon type="plus" />
@@ -31,17 +11,19 @@ class PicturesWall extends React.Component {
       </div>
     );
     return (
-      <div className="clearfix">
+      <div style={{
+          textAlign:'center'
+      }} className="clearfix">
         <Upload
           action="/api/v1/photos/upload"
           listType="picture-card"
           fileList={fileList}
-          onPreview={this.handlePreview}
-          onChange={this.handleChange}
+          onPreview={handlePreview}
+          onChange={handleChange}
         >
           {fileList.length >= 5 ? null : uploadButton}
         </Upload>
-        <Modal visible={previewVisible} footer={null} onCancel={this.handleCancel}>
+        <Modal visible={previewVisible} footer={null} onCancel={handleCancel}>
           <img alt="example" style={{ width: '100%' }} src={previewImage} />
         </Modal>
       </div>
