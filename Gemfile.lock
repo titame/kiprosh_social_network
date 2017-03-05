@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/rohanpujaris/core_box
-  revision: 346f73fa7c171c77fe03448a17daa8c75faffe5f
+  revision: 425361f639299606a07187e9e49afeb61b6a93e0
   branch: stable
   specs:
     core_box (0.1.3)
@@ -72,6 +72,8 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     execjs (2.7.0)
+    faker (1.7.3)
+      i18n (~> 0.5)
     ffi (1.9.18)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
@@ -122,6 +124,7 @@ GEM
     public_suffix (2.0.5)
     puma (3.7.1)
     rack (2.0.1)
+    rack-cors (0.4.1)
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.2)
@@ -205,6 +208,7 @@ GEM
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    will_paginate (3.1.5)
 
 PLATFORMS
   ruby
@@ -214,6 +218,7 @@ DEPENDENCIES
   cloudinary
   coffee-rails (~> 4.2)
   core_box!
+  faker
   haml-rails
   jbuilder (~> 2.5)
   jquery-rails
@@ -221,6 +226,7 @@ DEPENDENCIES
   mini_racer
   pg
   puma (~> 3.0)
+  rack-cors
   rails (~> 5.0.2)
   react_on_rails (~> 6)
   sass-rails (~> 5.0)
@@ -230,6 +236,7 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
+  will_paginate
 
 RUBY VERSION
    ruby 2.3.1p112

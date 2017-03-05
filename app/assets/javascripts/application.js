@@ -14,10 +14,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require login
 //= require turbolinks
+//= require bootstrap/js/bootstrap.min.js
 //= require main
 //= require moment
 //= require timeline
-//= require bootstrap/js/bootstrap.min.js
+//= require modernizr
 
 APP_URL = "http://localhost:3000"
