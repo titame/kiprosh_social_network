@@ -1,0 +1,24 @@
+.ReactModal__Content .ant-form {
+  margin-left: 25%;
+}
+
+.ReactModal__Content .clearfix {
+  margin-left: 12%;
+}
+
+.ReactModal__Content .form-title {
+  font-size: 25px;
+  margin-left: 20%;
+  font-weight: 500;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+.form_buttons {
+  margin-left: 12%;
+  margin-top: 10px;
+}
+
+.form_buttons .ant-form-item {
+  display: inline-block;
+  margin-left: 40px;
+}

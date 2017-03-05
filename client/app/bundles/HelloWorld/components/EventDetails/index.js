@@ -1,13 +1,11 @@
 import React, {  Component } from 'react';
 import HeroContainer from './HeroContainer';
 import Gallery from './Gallery';
-import PicturesWall from './PicturesWall';
+import AlbumForm from './AlbumForm';
 
 import Modal from 'react-modal';
 
 import './EventsDetail.css';
-import './PicturesWall.css';
-import './antd.min.css';
 
 const customStyle = {
     content : {
@@ -61,7 +59,7 @@ class EventDetails extends Component {
                  isModalOpen:true
              })
          }}>Show Modal</div>
-       <Modal
+        <Modal
           isOpen={isModalOpen}
           onAfterOpen={() => {}}
           onRequestClose={this.closeModal}
@@ -69,14 +67,8 @@ class EventDetails extends Component {
           style={customStyle}
           contentLabel="Modal"
         >
-           This is Modal
-           <button onClick={() => {
-               this.setState({
-                   isModalOpen:false
-               })
-           }}>Close</button>
+        <AlbumForm closeForm={this.closeModal}/>
        </Modal>
-       <PicturesWall/>
      </section>
    )
  }
