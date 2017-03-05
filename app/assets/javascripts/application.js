@@ -14,6 +14,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require login
 //= require turbolinks
 //= require bootstrap/js/bootstrap.min.js
 
+APP_URL = "http://02a5faf8.ngrok.io"
