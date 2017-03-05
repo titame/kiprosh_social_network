@@ -30,6 +30,8 @@
     "es5-shim": "^4.5.9",
     "expose-loader": "^0.7.1",
     "imports-loader": "^0.7.0",
+    "moment": "^2.17.1",
+    "rc-calendar": "^7.6.7",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-grid-gallery": "^0.3.0",
@@ -38,6 +40,7 @@
     "react-on-rails": "6.7.1",
     "react-select": "^1.0.0-rc.3",
     "save": "^2.3.0",
+    "velocity-react": "^1.2.1",
     "webpack": "^1.14.0"
   },
   "devDependencies": {

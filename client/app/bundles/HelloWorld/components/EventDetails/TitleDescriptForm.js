@@ -1,7 +1,4 @@
-/**
- * Created by shoaibbhimani on 3/5/17.
- */
-import React from 'react';
+import React, { PropTypes as t } from 'react';
 
 
 class TitleDescriptForm extends React.Component {
@@ -61,5 +58,15 @@ class TitleDescriptForm extends React.Component {
         )
     }
 }
+
+
+TitleDescriptForm.propTypes = {
+ title:t.string.isRequired,
+ description:t.string.isRequired,
+ updateTitle:t.func.isRequired,
+ updateDesc:t.func.isRequired
+};
+
+
 
 export default TitleDescriptForm;
