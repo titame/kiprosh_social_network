@@ -9,7 +9,7 @@
 }
 
 .herowrapper {
-    background:rgba(0,0,0,0.4);
+    background:rgba(0,0,0,0.7);
     width: 100%;
     height: 100%;
 }
@@ -34,10 +34,13 @@
  /*background-color: #bac4cb;*/
 }
 
+.hero_date_container {
+    text-align: center;
+}
 .hero__date p {
   float: left;
   padding: 0;
-  margin: 0;
+  margin: 0 .4rem;
 }
 
 .hero__date:last-of-type {

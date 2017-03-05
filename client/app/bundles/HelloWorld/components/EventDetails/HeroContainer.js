@@ -10,7 +10,7 @@ class HeroContainer extends React.Component {
           <section className="herowrapper">
             <div className="heroimage__content">
                <h3 className="hero__header">Awesome Event</h3>
-                <div className="dates">
+                <div className="hero_date_container">
                     <div className="hero__date start__date">
                         <p>Start</p>
                         <p> 13- August </p>
