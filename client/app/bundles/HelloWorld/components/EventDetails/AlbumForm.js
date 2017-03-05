@@ -3,6 +3,8 @@ import { Form, Select, Input, Button, notification } from 'antd';
 
 import PicturesWall from './PicturesWall';
 
+import TitleDescriptForm from './TitleDescriptForm';
+
 import './PicturesWall.css';
 import './antd.min.css';
 import './AlbumForm.css';
@@ -65,64 +67,33 @@ class FormFields extends React.Component {
      this.setState({ fileList })
   };
 
+  updateTitle = (title) => {
+    this.setState({
+        title
+    })
+  };
+
+  updateDesc = (description) => {
+    this.setState({
+       description
+   })
+  }
+
   render() {
     const { getFieldDecorator } = this.props.form;
+    const { createPostOrAlbum } = this.props;
     const { title, description, previewVisible, previewImage, fileList } = this.state;
     return (
       <form style={{
-
+        display: createPostOrAlbum === 'album' ? 'block' : 'none'
       }} onSubmit={this.handleSubmit}>
-        <div className="form-title"> Create your album </div>
 
-              <section className="ant-row ant-form-item">
-                  <div className="ant-col-4 ant-form-item-label">
-                      <label htmlFor="title" className="ant-form-item-required" title="Title">
-                          Title
-                      </label>
-                  </div>
-                  <div className="ant-col-8 ant-form-item-control-wrapper">
-                      <div className="ant-form-item-control ">
-                          <input
-                              type="text"
-                              defaultValue=""
-                              id="title"
-                              onChange={(event) => {
-                                  this.changeTitle = true;
-                                  this.setState({
-                                      title: event.target.value
-                                  });
-                              }}
-                              className="ant-input ant-input-lg" />
-                          <div className={this.changeTitle && !title.length ? 'ant-form-explain' : 'hide' }>Please input your album title!</div>
-                      </div>
-                  </div>
-              </section>
-              <section className="ant-row ant-form-item">
-                  <div className="ant-col-4 ant-form-item-label">
-                      <label htmlFor="title" className="ant-form-item-required" title="Title">
-                          Description
-                      </label>
-                  </div>
-                  <div className="ant-col-8 ant-form-item-control-wrapper">
-                      <div className="ant-form-item-control ">
-                          <input
-                              type="text"
-                              defaultValue=""
-                              id="title"
-                              onChange={(event) => {
-                                  this.changeDesc = true;
-                                  this.setState({
-                                      description: event.target.value
-                                  });
-                              }}
-                              className="ant-input ant-input-lg" />
-                          <div className={this.changeDesc && !description.length ? 'ant-form-explain' : 'hide' }>
-                              Please input your album Description!
-                          </div>
-                      </div>
-                  </div>
-              </section>
-
+        <TitleDescriptForm
+            updateTitle={this.updateTitle}
+            title={title}
+            updateDesc={this.updateDesc}
+            description={description}
+         />
         <PicturesWall
             handleSubmit={this.handleSubmit}
             handlePreview={this.handlePreview}
@@ -132,18 +103,14 @@ class FormFields extends React.Component {
             previewImage={previewImage}
             fileList={fileList}
          />
-        <div className="form_buttons">
-          <FormItem wrapperCol={{ span: 8, offset: 4 }}>
+        <div className="btn__wrapper">
             <Button type="primary" htmlType="submit">
               Submit
             </Button>
-          </FormItem>
-          <FormItem wrapperCol={{ span: 8, offset: 4 }}>
             <Button type="primary" onClick={this.props.closeForm}>
               Cancel
             </Button>
-          </FormItem>
-        </div>
+         </div>
       </form>
     );
   }
