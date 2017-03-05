@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 
 class Tweet extends Component {
   render(){
+   const { post } = this.props;
    return (
      <section className="avatar clearfix">
          <div className="image__header">
@@ -12,9 +13,9 @@ class Tweet extends Component {
          </div>
        <section className="image__content clearfix">
            <section className="image__heading">
-               Shoaib Bhimani
+             Shoaib Bhimani
            </section>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, cupiditate enim eum exercitationem, facere fugit laudantium minima non nostrum, ratione rerum sequi sint voluptates! Est facere ipsum maxime rem sequi?
+           {post.content}
        </section>
      </section>
    )

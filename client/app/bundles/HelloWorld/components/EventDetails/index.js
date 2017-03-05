@@ -1,16 +1,14 @@
 import React, {  Component } from 'react';
 import Modal from 'react-modal';
 
-
 //Custom
 import HeroContainer from './HeroContainer';
 import Gallery from './Gallery';
+import AlbumForm from './AlbumForm';
 
 import PicturesWall from './PicturesWall';
 import Tweet from './Tweet'
 import './EventsDetail.css';
-import './PicturesWall.css';
-import './antd.min.css';
 
 // Theme for SLider
 const theme = {
@@ -89,14 +87,35 @@ const customStyle = {
 };
 
 
+
 class EventDetails extends Component {
  constructor(props){
    super(props);
    this.state = {
+       events:{
+           albums:{
+
+           },
+           posts:[]
+       },
      images:[{ src:'http://lorempixel.com/400/400/sports/1'} ,{ src:'http://lorempixel.com/400/400/sports/2'},{ src:'http://lorempixel.com/400/400/sports/3'},{ src:'http://lorempixel.com/400/400/sports/1'} ],
      isModalOpen:false
    };
    this.closeModal = this.closeModal.bind(this);
+ }
+
+ componentDidMount(){
+   $.ajax({
+    url:'http://1ff69929.ngrok.io/api/v1/events/769?token=de7374db290424cff6d7be44447eaabf',
+    success:(data) => {
+        this.setState({
+            events:data
+        })
+    },
+    error:() => {
+
+    }
+   })
  }
  closeModal(){
    this.setState({
@@ -112,23 +131,32 @@ class EventDetails extends Component {
  render(){
   const {
     images,
-    isModalOpen
+    isModalOpen,
+    events
   } = this.state;
    return (
      <section>
        <HeroContainer
+           events={events}
            backgroundImage={'https://images.unsplash.com/photo-1471101173712-b9884175254e?dpr=2&auto=format&crop=faces&fit=crop&w=300&h=300'}
        />
 
        <section className="gallery__container clearfix">
          <h4 className="album__heading">Album</h4>
-         <section className="gallery__item">
-            <Gallery
-              images={images}
-              showThumbnails={true}
-              theme={theme}
-            />
-         </section>
+           {
+               Object.keys(events.albums).map((album, index) => {
+                  return (
+                      <section key={index} className="gallery__item">
+                          <Gallery
+                              images={events.albums[album].photos}
+                              showThumbnails={true}
+                              theme={theme}
+                          />
+                      </section>
+                  )
+               })
+           }
+
          <section className="gallery__item">
            <Gallery
                images={images}
@@ -147,15 +175,7 @@ class EventDetails extends Component {
        </div>
         <section  className="container">
            <section style={{'width': '100%'}} className="col-md-8 col-md-2-offset">
-             <Tweet  />
-             <Tweet  />
-             <Tweet  />
-             <Tweet  />
-             <Tweet  />
-             <Tweet  />
-             <Tweet  />
-             <Tweet  />
-             <Tweet  />
+             {events.posts.map((post, index) => <Tweet key={index} post={post} />)}
            </section>
          </section>
        <Modal
@@ -166,14 +186,8 @@ class EventDetails extends Component {
           style={customStyle}
           contentLabel="Modal"
         >
-           This is Modal
-           <button onClick={() => {
-               this.setState({
-                   isModalOpen:false
-               })
-           }}>Close</button>
+        <AlbumForm closeForm={this.closeModal}/>
        </Modal>
-       <PicturesWall/>
      </section>
    )
  }
