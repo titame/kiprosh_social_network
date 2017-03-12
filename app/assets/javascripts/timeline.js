@@ -1,15 +1,5 @@
-$(document).ready(function () {
-  fetchInfo()
-  'use strict';
-  var token = localStorage.getItem("token");
-  token = "de7374db290424cff6d7be44447eaabf";
-  console.log('here');
-  var offset = 0;
-  $(window).scroll(function () {
-      if ($(window).scrollTop() + $(window).height() == $(document).height()) {
-        fetchInfo();
-      }
-  });
+var token = localStorage.getItem("token") || "7823b6c3aa5d3f3221eced23813074dc"
+var offset = 0;
 
 function fetchInfo() {
   $.ajax({
@@ -28,7 +18,7 @@ function fetchInfo() {
                   + '<div class="cd-timeline-content">'
                   + '<h2>' + result[i].name + '</h2>'
                   + '<p>' + result[i].description + '</p>'
-                  + '<a href="#0" class="cd-read-more">Read more</a>'
+                  + '<div class="cd-read-more" data-event_id='+ result[i].event_id+'>View details</div>'
                   + '<span class="cd-date">' + moment(result[i].start_date_time).format('Do,MMM YYYY - ') + moment(result[i].end_date_time).format('Do,MMM YYYY') + '</span>'
                   + '</div>'
                   + '</div>';
@@ -39,6 +29,12 @@ function fetchInfo() {
       }
   });
 }
+
+$(window).scroll(function () {
+    if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+      fetchInfo();
+    }
+});
 function setBounce() {
     var timelineBlocks = $('.cd-timeline-block'), offset = 0.8;
 
@@ -63,5 +59,14 @@ function setBounce() {
             ($(this).offset().top <= $(window).scrollTop() + $(window).height() * offset && $(this).find('.cd-timeline-img').hasClass('is-hidden')) && $(this).find('.cd-timeline-img, .cd-timeline-content').removeClass('is-hidden').addClass('bounce-in');
         });
     }
-  }
+}
+
+$(document).ready(function () {
+  'use strict';
+  fetchInfo()
+
+  $(document).on("click", ".cd-read-more", function(e) {
+    var event_id = $(this).data("event_id");
+    Notifier.notify("fetchEvent", {event_id: event_id});
+  });
 });

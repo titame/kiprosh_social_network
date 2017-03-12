@@ -5,12 +5,13 @@ Rails.application.routes.draw do
 
   get "login", to: "application#login"
   get "signup", to: "application#signup"
-  get "events", to: "events#index"
-  get 'api/v1/login', to: 'application#login'
+  get "timeline", to: "pages#timeline"
   namespace :api, defaults: { format: "json" }  do
     namespace :v1 do
       resources :events
+      get 'login', to: 'application#login'
       post "photos/upload", to: "photos#upload"
+      post "albums", to: "albums#create"
     end
   end
 end

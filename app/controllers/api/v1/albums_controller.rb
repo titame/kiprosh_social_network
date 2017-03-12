@@ -4,7 +4,10 @@ module Api
       def create
         album = Album.create(name: params[:name], event_id: params[:event_id])
         if album.valid?
-          render json: { album_id: album.id }, status: :success
+          params[:images].each do |key, image|
+            album.photos.create(filename: image["name"], url: image["url"])
+          end
+          render json: { message: "Album created successfully!" }
         else
           render json: { errors: album.errors.full_messages }, status: :bad_request
         end

@@ -35,7 +35,7 @@ class FormFields extends React.Component {
   }
 
   handleSubmit = (e) => {
-      e.preventDefault();
+    e.preventDefault();
     const { title, description } = this.state;
       if(title.length === 0 && description.length === 0) {
           openNotificationWithIcon("error" ,"Title & Description is Missing","Please input your album title and Description");
@@ -49,6 +49,30 @@ class FormFields extends React.Component {
       return null;
     }
 
+    console.log(this.props.event);
+
+    var images = this.state.fileList.map((file) => {
+      return {url: file.response.url, name: file.name}
+    });
+
+    $.ajax({
+      url: APP_URL + "/api/v1/albums",
+      headers: { 'token': localStorage.getItem("token") },
+      data: {
+        name: title,
+        description: description,
+        event_id: this.props.event.event_id,
+        images: images
+      },
+      type: 'POST',
+      error:(result) => {
+        openNotificationWithIcon("error" ,"Something went wrong",result.responseMessage);
+      },
+      success:(data) => {
+        openNotificationWithIcon("success" ,"Album created", data.message);
+        this.props.closeForm();
+      }
+    });
   };
 
   handleCancel = () => this.setState({

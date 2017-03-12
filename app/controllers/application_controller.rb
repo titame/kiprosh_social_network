@@ -20,6 +20,6 @@ class ApplicationController < ActionController::Base
 
   private
   def redirect_to_events
-    return(redirect_to(events_path)) if session['current_person_id']
+    return(redirect_to(timeline_path)) if session['current_person_id']
   end
 end

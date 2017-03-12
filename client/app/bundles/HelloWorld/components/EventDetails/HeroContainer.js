@@ -12,16 +12,16 @@ class HeroContainer extends React.Component {
          <h3 className="hero__header"> {events.name }</h3>
           <div className="hero_date_container">
               <div className="hero__date start__date">
-                  <p>Start</p>
-                  <p> 13- August </p>
+                  <p>Start -</p>
+                  <p>{moment(events.start_date_time).format('Do, MMM YYYY')}</p>
               </div>
               <div className="hero__date stop__date">
-                  <p>End</p>
-                  <p> 13- August </p>
+                  <p>End -</p>
+                  <p>{moment(events.end_date_time).format('Do, MMM YYYY')}</p>
               </div>
           </div>
           <div style={{
-              marginTop:'1rem'
+              marginTop:'1rem', textAlign: 'center'
           }} className="center-block text-center">
               {events.description}
           </div>

@@ -19,6 +19,7 @@
 //= require bootstrap/js/bootstrap.min.js
 //= require main
 //= require moment
+//= require notifier
 //= require timeline
 //= require modernizr
 
@@ -36,7 +37,7 @@ $(document).ready(function(){
       });
       window.location.href = '/events'
     })
-  })  
+  })
   $('#signup-button').on('click', function(e){
     $.post('/core_box/people/signup', {
       first_name: $('#first_name').val(),
@@ -50,5 +51,5 @@ $(document).ready(function(){
       });
       window.location.href = '/events'
     })
-  })  
+  })
 });

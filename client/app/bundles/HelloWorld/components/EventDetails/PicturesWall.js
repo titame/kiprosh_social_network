@@ -15,6 +15,7 @@ class PicturesWall extends React.Component {
           textAlign:'center'
       }} className="clearfix">
         <Upload
+          headers={{ 'token': localStorage.getItem("token") }}
           action="/api/v1/photos/upload"
           listType="picture-card"
           fileList={fileList}
