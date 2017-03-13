@@ -1,4 +1,4 @@
-var token = localStorage.getItem("token") || "7823b6c3aa5d3f3221eced23813074dc"
+var token = localStorage.getItem("token")
 var offset = 0;
 
 function fetchInfo() {
@@ -63,7 +63,7 @@ function setBounce() {
 
 $(document).ready(function () {
   'use strict';
-  fetchInfo()
+  if(token){ fetchInfo() }
 
   $(document).on("click", ".cd-read-more", function(e) {
     var event_id = $(this).data("event_id");

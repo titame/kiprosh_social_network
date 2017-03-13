@@ -170,6 +170,7 @@ fetchEventDetails(data) {
                  Object.keys(event.albums).map((album, index) => {
                     return (
                         <section key={index} className="gallery__item">
+                            <hr/>
                             <Gallery
                                 images={event.albums[album].photos}
                                 showThumbnails={true}

@@ -35,7 +35,7 @@ $(document).ready(function(){
       $.ajaxSetup({
           headers: { 'token': localStorage.getItem("token") }
       });
-      window.location.href = '/events'
+      window.location.href = '/timeline'
     })
   })
   $('#signup-button').on('click', function(e){
@@ -49,7 +49,7 @@ $(document).ready(function(){
       $.ajaxSetup({
           headers: { 'token': localStorage.getItem("token") }
       });
-      window.location.href = '/events'
+      window.location.href = '/timeline'
     })
   })
 });

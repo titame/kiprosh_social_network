@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   before_action :redirect_to_events, only: [:login, :signup]
+  # before_action :redirect_to_login, except: [:login, :signup]
 
   def login
     respond_to do |format|
@@ -19,6 +20,10 @@ class ApplicationController < ActionController::Base
   end
 
   private
+  def redirect_to_login
+    return(redirect_to(login_path)) unless session['current_person_id']
+  end
+
   def redirect_to_events
     return(redirect_to(timeline_path)) if session['current_person_id']
   end

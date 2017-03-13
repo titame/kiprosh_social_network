@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   mount CoreBox::Engine => "/core_box"
-  root "pages#home"
+  root "pages#timeline"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   get "login", to: "application#login"
