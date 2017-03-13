@@ -82,7 +82,7 @@ createEvent() {
    const { name, description } = this.state;
    const { updateSubComponentRender } = this.props;
    return (
-     <form>
+     <form style={{height: '280px'}}>
        <div className="titledesc" style={{
          width:'41%',
          margin:'1.3rem auto 0'

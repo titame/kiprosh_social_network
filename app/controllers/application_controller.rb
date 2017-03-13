@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   before_action :redirect_to_events, only: [:login, :signup]
-  # before_action :redirect_to_login, except: [:login, :signup]
+  before_action :redirect_to_login, only: [:timeline]
 
   def login
     respond_to do |format|
@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+
   def signup
     respond_to do |format|
       format.html do
@@ -19,9 +20,18 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def logout
+    CoreBox::AccessToken.where(person_id: session[:current_person_id]).destroy_all
+    session['current_person_id'] = nil
+    head :ok
+  end
+
   private
   def redirect_to_login
-    return(redirect_to(login_path)) unless session['current_person_id']
+    unless(CoreBox::AccessToken.exists?(token: params[:token]) || session['current_person_id'])
+      session['current_person_id'] = nil
+      return(redirect_to(login_path))
+    end
   end
 
   def redirect_to_events

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'antd';
 
 class HeroContainer extends React.Component {
  render() {
@@ -25,6 +26,7 @@ class HeroContainer extends React.Component {
           }} className="center-block text-center">
               {events.description}
           </div>
+          <Button style={{marginTop: '10%', marginLeft: '36%', width: '30%'}} onClick={this.props.openModal}>Share</Button>
       </div>
     </section>
    </section>

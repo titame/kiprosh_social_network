@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get "login", to: "application#login"
   get "signup", to: "application#signup"
+  post 'logout', to: 'application#logout'
   get "timeline", to: "pages#timeline"
   namespace :api, defaults: { format: "json" }  do
     namespace :v1 do
