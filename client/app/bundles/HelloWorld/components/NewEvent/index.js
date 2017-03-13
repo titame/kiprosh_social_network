@@ -6,7 +6,7 @@ import bindFunctions from '../UtilityMethod';
 import { VelocityTransitionGroup } from 'velocity-react'
 
 import './newEventCaleder.css';
-import Form from './Form'
+import EventForm from './EventForm'
 
 class NewEvent extends Component {
   constructor(props){
@@ -31,7 +31,7 @@ class NewEvent extends Component {
      <div style={{ border: '1px solid #d9d9d9', borderRadius: 4 }}>
        <Button onClick={this.updateSubComponentRender}>New Event</Button>
        <VelocityTransitionGroup enter={{animation: "slideDown"}} leave={{animation: "slideUp"}}>
-           {this.state.renderSubComponent ? <Form updateSubComponentRender={this.updateSubComponentRender}/> : undefined}
+           {this.state.renderSubComponent ? <EventForm updateSubComponentRender={this.updateSubComponentRender} event_types={this.props.event_types}/> : undefined}
        </VelocityTransitionGroup>
      </div>
   	)

@@ -1,7 +1,9 @@
 json.event_id @event.id
 json.name @event.name
-json.start_date_time Time.at(@event.start_time).to_time
-json.end_date_time Time.at(@event.end_time).to_time
+if @event.start_time && @event.end_time
+  json.start_date_time Time.at(@event.start_time).to_time
+  json.end_date_time Time.at(@event.end_time).to_time
+end
 json.description @event.description
 json.background_image_url @event.background_image_url
 

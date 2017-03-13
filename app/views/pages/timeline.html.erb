@@ -1,4 +1,4 @@
-<%= react_component('NewEvent') %>
+<%= react_component('NewEvent', props: {event_types: JSON.parse(EventType.all.to_json)}) %>
 
 <header style="background:url(https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/14962601_1233141120076673_6972748452500720449_n.jpg?oh=ffdbaaa8765232b1e031eb334ca94f90&oe=596CDF92) no-repeat;background-size:cover;background-position:0">
     <img src="http://kiprosh.com/assets/kiprosh-logo_forgreenbg_xsmall-abeb155e01b1550a1fd59516d7beadc344af680da23332c90bb328b75e0ca234.png" />
