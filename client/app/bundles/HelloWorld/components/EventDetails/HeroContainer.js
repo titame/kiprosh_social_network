@@ -1,5 +1,7 @@
 import React from 'react';
 
+
+
 class HeroContainer extends React.Component {
  render() {
   const { backgroundImage, events } = this.props;
@@ -8,6 +10,7 @@ class HeroContainer extends React.Component {
         backgroundImage: `url(${events.background_image_url})`
     }}>
     <section className="herowrapper">
+      <button className="close__btn"> Close  </button>
       <div className="heroimage__content">
          <h3 className="hero__header"> {events.name }</h3>
           <div className="hero_date_container">

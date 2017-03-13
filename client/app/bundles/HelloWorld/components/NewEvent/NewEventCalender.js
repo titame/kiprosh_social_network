@@ -1,5 +1,9 @@
-import { DatePicker } from 'antd';
+import { DateField  as DatePicker } from 'react-date-picker';
+
 import React from 'react';
+
+import './date.css'
+
 
 class DateRange extends React.Component {
     state = {
@@ -7,22 +11,6 @@ class DateRange extends React.Component {
         endValue: null,
         endOpen: false,
     };
-
-    disabledStartDate = (startValue) => {
-        const endValue = this.state.endValue;
-        if (!startValue || !endValue) {
-            return false;
-        }
-        return startValue.valueOf() > endValue.valueOf();
-    }
-
-    disabledEndDate = (endValue) => {
-        const startValue = this.state.startValue;
-        if (!endValue || !startValue) {
-            return false;
-        }
-        return endValue.valueOf() <= startValue.valueOf();
-    }
 
     onChange = (field, value) => {
         this.setState({
@@ -32,50 +20,36 @@ class DateRange extends React.Component {
 
     onStartChange = (value) => {
         this.onChange('startValue', value);
+        this.props.onStartPanelChange(value);
     }
 
     onEndChange = (value) => {
         this.onChange('endValue', value);
+        this.props.onEndPanelChange(value);
     }
 
-    handleStartOpenChange = (open) => {
-        if (!open) {
-            this.setState({ endOpen: true });
-        }
-    }
-
-    handleEndOpenChange = (open) => {
-        this.setState({ endOpen: open });
-    }
 
     render() {
         const { startValue, endValue, endOpen } = this.state;
         return (
             <div  style={{
-                width: '30%',
+                width: '52%',
                 textAlign: 'center',
                 marginLeft: 'auto',
                 marginRight: 'auto',
                 marginBottom: '1rem'
             }}>
                 <DatePicker
-                    disabledDate={this.disabledStartDate}
-                    showTime
-                    format="YYYY-MM-DD HH:mm:ss"
+                    dateFormat="YYYY-MM-DD"
                     value={startValue}
                     placeholder="Start"
                     onChange={this.onStartChange}
-                    onOpenChange={this.handleStartOpenChange}
                 />
                 <DatePicker
-                    disabledDate={this.disabledEndDate}
-                    showTime
-                    format="YYYY-MM-DD HH:mm:ss"
+                    dateFormat="YYYY-MM-DD"
                     value={endValue}
                     placeholder="End"
                     onChange={this.onEndChange}
-                    open={endOpen}
-                    onOpenChange={this.handleEndOpenChange}
                 />
             </div>
         );

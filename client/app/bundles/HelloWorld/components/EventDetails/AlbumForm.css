@@ -7,16 +7,17 @@
 /*}*/
 
 .react_modalBtn_container {
-  width: 55%;
+  width: 40%;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
 }
 
 .react_modalBtn_container div {
   float: left;
-  font-size: 1rem;
+  font-size: 12px;
   padding: 0.5rem;
-  border-radius: 4.3rem;
+  border-radius: 0.3rem;
   font-family: 'Montserrat', sans-serif;
   margin: 1rem 2.3rem;
   outline: none;

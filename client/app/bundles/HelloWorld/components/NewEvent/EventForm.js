@@ -4,6 +4,8 @@ import DateRange from './NewEventCalender'
 import bindFunctions from '../UtilityMethod';
 import { Form, Button, Select } from 'antd';
 
+import moment from 'moment'
+
 const FormItem = Form.Item;
 const Option = Select.Option;
 
@@ -21,7 +23,10 @@ class EventFormFields extends React.Component {
  }
 
 createEvent() {
-  var data = {event: this.state};
+  let data = {
+    event: this.state
+  };
+
   $.ajax({
     url: APP_URL + '/api/v1/events',
     type: "POST",
@@ -35,17 +40,15 @@ createEvent() {
   });
 }
 
- onStartPanelChange(value, mode){
-   console.log(value, mode);
+ onStartPanelChange(value){
    this.setState({
-      startDate:value
+      startDate:moment(value).format('LLLL')
    });
  }
 
- onEndPanelChange(value, mode){
-   console.log(value, mode);
+ onEndPanelChange(value){
    this.setState({
-      endDate:value
+      endDate:moment(value).format('LLLL')
    });
  }
 
@@ -115,7 +118,10 @@ createEvent() {
          updateDesc={this.updateDesc}
         />
         </div>
-        <DateRange />
+        <DateRange
+            onEndPanelChange={this.onEndPanelChange}
+            onStartPanelChange={this.onStartPanelChange}
+        />
         <div className="btn__wrapper">
           <Button type="submit" onClick={this.createEvent}>Submit</Button>
           <Button onClick={updateSubComponentRender}>Cancel</Button>

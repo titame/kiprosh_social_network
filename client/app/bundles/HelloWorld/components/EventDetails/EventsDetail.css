@@ -60,17 +60,15 @@
 
 
 .album__btn {
-  width: 31%;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
   padding: 0.5rem;
   border-radius: 4.3rem;
-  border: 2px solid #ccc;
   margin: 0.5rem auto;
   color: white;
   outline:none;
-  background: #999;
+  background: #108ee9;
 }
 .album__thumbnail img {
   width:120px;

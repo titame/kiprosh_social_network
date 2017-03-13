@@ -549,3 +549,30 @@
   border-collapse: collapse;
   border-spacing: 0;
  }
+
+
+ .cd-read-more {
+     cursor: pointer;
+ }
+
+
+#cd-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    overflow: scroll;
+    background-color: #fff;
+}
+
+.close__btn {
+    background: none;
+    border: 2px solid white;
+    padding: .3rem;
+    border-radius: 0.3rem;
+    margin-top: 1.4rem;
+    margin-left: .3rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+}

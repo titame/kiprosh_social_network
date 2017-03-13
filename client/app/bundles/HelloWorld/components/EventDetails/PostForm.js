@@ -9,7 +9,8 @@ class PostForm extends React.Component {
     super(props) ;
     this.submitForm = this.submitForm.bind(this);
     this.state = {
-        title:''
+        title:'',
+        description:''
     }
  }
   updateTitle = (title) => {
@@ -41,7 +42,8 @@ class PostForm extends React.Component {
   };
 
  render(){
-     const { title, description, createPostOrAlbum } = this.props;
+    const { createPostOrAlbum } = this.props;
+    const { title, description } = this.state;
     return(
       <form style={{
           display: createPostOrAlbum === 'post' ? 'block' : 'none'

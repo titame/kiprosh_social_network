@@ -64,9 +64,29 @@ function setBounce() {
 $(document).ready(function () {
   'use strict';
   if(token){ fetchInfo() }
+   $('#cd-modal').hide();
 
-  $(document).on("click", ".cd-read-more", function(e) {
+   $(document).on("click", ".cd-read-more", function(e) {
     var event_id = $(this).data("event_id");
+
+    $('html, body').css({
+      overflow: 'hidden',
+      height: '100%'
+    });
+
+    var $cdModal = $('#cd-modal');
+    $cdModal.show();
+
+    $cdModal.on('click', '.close__btn', function(){
+
+      $cdModal.hide();
+      $('html, body').css({
+        overflow: 'auto',
+        height: 'auto'
+      });
+
+    });
+
     Notifier.notify("fetchEvent", {event_id: event_id});
   });
 });
