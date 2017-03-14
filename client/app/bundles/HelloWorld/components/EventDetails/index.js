@@ -103,6 +103,7 @@ class EventDetails extends Component {
     createPostOrAlbum: 'album'
    };
    this.closeModal = this.closeModal.bind(this);
+   this.openModal = this.openModal.bind(this);
    this.updateCreatePostOrAlbum = this.updateCreatePostOrAlbum.bind(this);
  }
 
@@ -120,6 +121,12 @@ class EventDetails extends Component {
    this.setState({
      isModalOpen:false
    })
+ }
+
+ openModal() {
+  this.setState({
+    isModalOpen: true
+  });
  }
 
 fetchEventDetails(data) {
@@ -143,7 +150,6 @@ fetchEventDetails(data) {
    })
  }
 
-
  componentWillMount() {
    Modal.setAppElement('body');
  }
@@ -162,6 +168,7 @@ fetchEventDetails(data) {
         <HeroContainer
              events={event}
              backgroundImage={'https://images.unsplash.com/photo-1471101173712-b9884175254e?dpr=2&auto=format&crop=faces&fit=crop&w=300&h=300'}
+             openModal={this.openModal}
         />
 
         <section className="gallery__container clearfix">
@@ -170,7 +177,6 @@ fetchEventDetails(data) {
                  Object.keys(event.albums).map((album, index) => {
                     return (
                         <section key={index} className="gallery__item">
-                            <hr/>
                             <Gallery
                                 images={event.albums[album].photos}
                                 showThumbnails={true}
@@ -181,13 +187,6 @@ fetchEventDetails(data) {
                  })
              }
         </section>
-        <div onClick={() => {
-           this.setState({
-             isModalOpen:true
-           })
-         }}>
-           Share
-        </div>
         <section  className="container">
           <section style={{'width': '100%'}} className="col-md-8 col-md-2-offset">
              {event.posts.map((post, index) => <Tweet key={index} post={post} />)}
